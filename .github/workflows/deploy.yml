@@ -9,7 +9,7 @@ env:
   DOCKER_REPOSITORY_DB: "${{ github.repository }}/db"
   DOCKER_REPOSITORY_DB_BACKUP: "${{ github.repository }}/db_backup"
   DOCKER_REPOSITORY_NGINX: "${{ github.repository }}/nginx"
-  SERVER: "docker.pkg.github.com"
+  SERVER: "ghcr.io"
 jobs:
   Build-anyway:
     if: github.repository == "${{ github.repository_owner }}/anyway"
@@ -22,7 +22,7 @@ jobs:
         name: ${{ env.DOCKER_REPOSITORY_ANYWAY }}
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
-        registry: docker.pkg.github.com
+        registry: ghcr.io
         repository: ${{ env.DOCKER_REPOSITORY_ANYWAY }}
         tag_with_ref: true
         tag_with_sha: true
@@ -35,7 +35,7 @@ jobs:
     - name: Build and push database Docker image
       uses: docker/build-push-action@v1.1.1
       with:
-        registry: docker.pkg.github.com
+        registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ env.DOCKER_REPOSITORY_DB }}
@@ -51,7 +51,7 @@ jobs:
     - name: Build and push database backup Docker image
       uses: docker/build-push-action@v1.1.1
       with:
-        registry: docker.pkg.github.com
+        registry: ghcr.io
         repository: ${{ env.DOCKER_REPOSITORY_DB_BACKUP }}
         dockerfile: 'db_docker/backup.Dockerfile'
         username: ${{ github.repository_owner }}
