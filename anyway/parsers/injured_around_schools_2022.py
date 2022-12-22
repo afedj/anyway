@@ -113,7 +113,7 @@ def acc_inv_query(longitude, latitude, distance, start_date, end_date, school):
         acc_type=SUBTYPE_ACCIDENT_WITH_PEDESTRIAN,
         # TODO: location_accurate, location_approx: should be modified because we've added more location
         # approaches:
-        # https://github.com/hasadna/anyway/pull/2223#discussion_r945924503
+        # https://github.com/data-for-change/anyway/pull/2223#discussion_r945924503
         location_accurate=location_accurate,
         location_approx=location_approx,
     )
